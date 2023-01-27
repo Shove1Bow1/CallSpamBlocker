@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search" />
+    <item
+        android:id="@+id/BlockedList"
+        android:icon="@drawable/ic_block"
+        android:title="@string/blocked" />
+    <item
+        android:id="@+id/Contacts"
+        android:icon="@drawable/ic_contacts"
+        android:title="@string/contacts" />
+    <item
+        android:id="@+id/Setting"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/setting" />
+</menu>

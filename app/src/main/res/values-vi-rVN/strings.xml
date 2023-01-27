@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Call Spam Blocker</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="contacts">Số liên lạc</string>
+    <string name="setting">Cài Đặt</string>
+    <string name="blocked">Danh sách chặn</string>
+    <string name="light_mode">Chế độ sáng</string>
+    <string name="night_mode">Chế độ tối</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="hello_blank_fragment">gu</string>
+    <string name="search_number">Tìm kiếm số điện thoại</string>
+    <string name="view_mode">Giao diện</string>
+    <string name="en_title">Tiếng anh</string>
+    <string name="vn_title">Tiếng việt</string>
+</resources>
