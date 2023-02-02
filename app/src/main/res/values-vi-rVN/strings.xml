@@ -13,4 +13,6 @@
     <string name="view_mode">Giao diện</string>
     <string name="en_title">Tiếng anh</string>
     <string name="vn_title">Tiếng việt</string>
+    <string name="recently_searched">Tìm kiếm gần đây</string>
+    <string name="clear_history">Xoá tìm kiếm</string>
 </resources>

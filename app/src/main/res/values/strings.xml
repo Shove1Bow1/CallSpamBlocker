@@ -23,4 +23,6 @@
         <item>EN</item>
         <item>VN</item>
     </array>
+    <string name="recently_searched">Recently Searched</string>
+    <string name="clear_history">Clear History</string>
 </resources>

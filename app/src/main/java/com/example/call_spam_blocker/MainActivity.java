@@ -1,6 +1,5 @@
 package com.example.call_spam_blocker;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -8,20 +7,15 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Application;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.stream.IntStream;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     private static final int READ_CONTACT_PERMISSION = 1;
@@ -42,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.Search:
-                SearchingFragment searchingFragment = new SearchingFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentHolder, searchingFragment).commit();
+                SearchFragment searchFragment = new SearchFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentHolder, searchFragment).commit();
                 return true;
             case R.id.Contacts:
                 ContactsFragment contactsFragment = new ContactsFragment();

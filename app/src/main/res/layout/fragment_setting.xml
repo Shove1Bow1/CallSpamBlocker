@@ -21,9 +21,7 @@
         android:paddingBottom="5dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        >
-
-    </TextView>
+        />
 
     <LinearLayout
         android:id="@+id/viewLinear"
@@ -58,12 +56,11 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch
             android:id="@+id/modeSW"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            />
+            android:gravity="center" />
     </LinearLayout>
 
     <LinearLayout
@@ -106,4 +103,19 @@
             android:id="@+id/languageShortName"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/clearHistoryButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/languageOpener"
+        android:gravity="start|center"
+        android:textSize="20sp"
+        android:text="@string/clear_history"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:textColor="@color/black" />
 </androidx.constraintlayout.widget.ConstraintLayout>

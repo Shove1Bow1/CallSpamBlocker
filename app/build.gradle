@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.call_spam_blocker"
-        minSdk 29
+        minSdk 25
         targetSdk 33
         versionCode 1
         versionName "1.0"
