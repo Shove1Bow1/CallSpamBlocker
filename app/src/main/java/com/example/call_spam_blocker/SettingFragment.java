@@ -3,6 +3,7 @@ package com.example.call_spam_blocker;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,13 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +27,7 @@ import android.widget.LinearLayout;
 public class SettingFragment extends Fragment   {
 
     private LinearLayout languageOpener;
+    private TextView clearHistory;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -56,6 +58,7 @@ public class SettingFragment extends Fragment   {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         languageOpener=view.findViewById(R.id.languageOpener);
+        clearHistory=view.findViewById(R.id.clearHistoryButton);
         languageOpener.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +66,12 @@ public class SettingFragment extends Fragment   {
                 Dialog dialog;
                 dialog=languageDialog.onCreateDialog(savedInstanceState);
                 dialog.show();
+            }
+        });
+        clearHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ClearSearchedList();
             }
         });
     }
@@ -83,5 +92,12 @@ public class SettingFragment extends Fragment   {
                     });
             return builder.create();
         }
+    }
+    public void ClearSearchedList(){SharedPreferences sharedPreferences=getActivity().getSharedPreferences("HistorySearched",Context.MODE_PRIVATE);
+        if(sharedPreferences.contains("SearchedList")){
+            sharedPreferences.edit().remove("SearchedList").commit();
+            Toast.makeText(getContext(),"History cache has been cleared",Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
