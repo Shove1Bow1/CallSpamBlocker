@@ -11,8 +11,10 @@
     <string name="hello_blank_fragment">gu</string>
     <string name="search_number">Tìm kiếm số điện thoại</string>
     <string name="view_mode">Giao diện</string>
-    <string name="en_title">Tiếng anh</string>
-    <string name="vn_title">Tiếng việt</string>
+    <string name="update_database">Cập nhật các số Spammer</string>
     <string name="recently_searched">Tìm kiếm gần đây</string>
     <string name="clear_history">Xoá tìm kiếm</string>
+    <string name="filter_contacts">Tìm kiếm theo tên danh bạ</string>
+    <string name="report_number">Báo cáo số điện thoại</string>
+    <string name="blocked_number">Chặn số liên lạc</string>
 </resources>

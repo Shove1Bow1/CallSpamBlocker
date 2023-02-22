@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +27,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements SearchedNumbersAdapter.OnClickSearched {
     private EditText editText;
     private ImageView searchBtn;
     private RecyclerView searchedHistoryRC;
@@ -59,15 +60,16 @@ public class SearchFragment extends Fragment {
         getSearchHistory();
         linearLayout = new LinearLayoutManager(getContext());
         linearLayout.setOrientation(RecyclerView.VERTICAL);
-        searchedNumbersAdapter=new SearchedNumbersAdapter(searchedNumbers,getContext());
+        searchedNumbersAdapter=new SearchedNumbersAdapter(searchedNumbers,getContext(),this::OnSearched);
         searchedHistoryRC.setLayoutManager(linearLayout);
         searchedHistoryRC.setAdapter(searchedNumbersAdapter);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (editText.getText() != null && editText.getText().length() > 0) {
-                    Log.d("this is running", "onClick: "+editText.getText());
-                    addToSearchHistory(editText.getText().toString());
+                    String resultNumber=editText.getText().toString();
+                    addToSearchHistory(resultNumber);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentHolder,new SearchResultFragment()).commit();
                 } else {
                     new AlertDialog.Builder(getContext())
                             .setTitle("You need enter phone number")
@@ -127,6 +129,11 @@ public class SearchFragment extends Fragment {
             }
         }
     }
+
+    @Override
+    public void OnSearched(SearchedNumber searchedNumber) {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentHolder,new SearchResultFragment()).commit();
+    }
 }
 
 class SearchedNumber {
@@ -152,10 +159,11 @@ class SearchedNumber {
 class SearchedNumbersAdapter extends RecyclerView.Adapter<SearchedNumbersAdapter.SearchedHolder> {
     private ArrayList<SearchedNumber> searchedNumbers;
     private Context context;
-
-    public SearchedNumbersAdapter(ArrayList<SearchedNumber> searchedNumbers, Context context) {
+    private OnClickSearched onClickSearched;
+    public SearchedNumbersAdapter(ArrayList<SearchedNumber> searchedNumbers, Context context, OnClickSearched onClickSearched) {
         this.searchedNumbers = searchedNumbers;
         this.context = context;
+        this.onClickSearched=onClickSearched;
     }
 
     @NonNull
@@ -169,6 +177,12 @@ class SearchedNumbersAdapter extends RecyclerView.Adapter<SearchedNumbersAdapter
     public void onBindViewHolder(@NonNull SearchedHolder holder, int position) {
         SearchedNumber searchedNumber = searchedNumbers.get(position);
         holder.searchedPhoneNumber.setText(searchedNumber.getNumberResult());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickSearched.OnSearched(searchedNumber);
+            }
+        });
     }
 
     @Override
@@ -190,5 +204,7 @@ class SearchedNumbersAdapter extends RecyclerView.Adapter<SearchedNumbersAdapter
 
         }
     }
-
+    public interface OnClickSearched{
+        public void OnSearched(SearchedNumber searchedNumber);
+    }
 }

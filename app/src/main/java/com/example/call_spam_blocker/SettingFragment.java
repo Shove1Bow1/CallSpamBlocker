@@ -28,6 +28,7 @@ public class SettingFragment extends Fragment   {
 
     private LinearLayout languageOpener;
     private TextView clearHistory;
+    private TextView languageLongName,languageShortName;
     public SettingFragment() {
         // Required empty public constructor
     }
@@ -59,6 +60,9 @@ public class SettingFragment extends Fragment   {
         super.onViewCreated(view, savedInstanceState);
         languageOpener=view.findViewById(R.id.languageOpener);
         clearHistory=view.findViewById(R.id.clearHistoryButton);
+        languageLongName=view.findViewById(R.id.languageLongName);
+        languageShortName=view.findViewById(R.id.languageShortName);
+        languageLongName.setText(getResources().getStringArray(R.array.en_language_list)[0]);
         languageOpener.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

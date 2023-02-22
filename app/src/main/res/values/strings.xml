@@ -25,4 +25,8 @@
     </array>
     <string name="recently_searched">Recently Searched</string>
     <string name="clear_history">Clear History</string>
+    <string name="update_database">Update Spammer Database</string>
+    <string name="filter_contacts">Filter your contact list</string>
+    <string name="report_number">Report Number</string>
+    <string name="blocked_number">Block number</string>
 </resources>
