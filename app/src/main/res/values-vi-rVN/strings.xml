@@ -17,4 +17,5 @@
     <string name="filter_contacts">Tìm kiếm theo tên danh bạ</string>
     <string name="report_number">Báo cáo số điện thoại</string>
     <string name="blocked_number">Chặn số liên lạc</string>
+    <string name="filter_blocked_number">Lọc các số bị chặn</string>
 </resources>

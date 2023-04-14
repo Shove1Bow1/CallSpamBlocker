@@ -29,4 +29,5 @@
     <string name="filter_contacts">Filter your contact list</string>
     <string name="report_number">Report Number</string>
     <string name="blocked_number">Block number</string>
+    <string name="filter_blocked_number">Filter your blocked number</string>
 </resources>
